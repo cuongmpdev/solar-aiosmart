@@ -290,6 +290,7 @@ export default function Home() {
   const [selectedWard, setSelectedWard] = useState<number | null>(null);
   const [selectedMoneyUsed, setSelectedMoneyUsed] = useState<string>("");
   const [selectedBudget, setSelectedBudget] = useState<string>("");
+  console.log(selectedWard, selectedMoneyUsed, selectedBudget)
 
   useEffect(() => {
     fetch("https://provinces.open-api.vn/api/?depth=1")
