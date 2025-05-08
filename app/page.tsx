@@ -721,7 +721,7 @@ export default function Home() {
         <h2 className="text-center text-[#e60028] font-bold text-lg sm:text-xl md:text-3xl mb-3 leading-tight">
           Tại sao bạn nên sử dụng điện năng lượng mặt trời của Viettel?
         </h2>
-        <div className="w-[400px] h-[1px] bg-black mx-auto mt-1 mb-10"></div>
+        <div className="w-[200px] md:w-[400px] h-[1px] bg-black mx-auto mt-1 mb-10"></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 text-center">
           <div>
             <div className="text-[#0A1E4D] mb-2">
