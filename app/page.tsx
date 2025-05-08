@@ -324,7 +324,10 @@ export default function Home() {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    await addRegistration(form, formData);
+    const tempProvince = provinces.find(p => p.code === selectedProvince)
+    const tempDistrict = districts.find(p => p.code === selectedDistrict)
+    const tempWard = wards.find(p => p.code === selectedWard)
+    await addRegistration({tempProvince, tempDistrict, tempWard}, formData);
   };
 
   return (
