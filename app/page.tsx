@@ -269,18 +269,6 @@ export default function Home() {
     }
   }, [visibleItems, totalItems]);
 
-  const next = () => {
-    if (current < totalItems - visibleItems) {
-      setCurrent((prev) => prev + 1);
-    }
-  };
-
-  const prev = () => {
-    if (current > 0) {
-      setCurrent((prev) => prev - 1);
-    }
-  };
-
   const [provinces, setProvinces] = useState<Province[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
   const [wards, setWards] = useState<Ward[]>([]);
@@ -290,7 +278,7 @@ export default function Home() {
   const [selectedWard, setSelectedWard] = useState<number | null>(null);
   const [selectedMoneyUsed, setSelectedMoneyUsed] = useState<string>("");
   const [selectedBudget, setSelectedBudget] = useState<string>("");
-  console.log(selectedWard, selectedMoneyUsed, selectedBudget)
+  console.log(selectedWard, selectedMoneyUsed, selectedBudget);
 
   useEffect(() => {
     fetch("https://provinces.open-api.vn/api/?depth=1")
@@ -324,10 +312,10 @@ export default function Home() {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    const tempProvince = provinces.find(p => p.code === selectedProvince)
-    const tempDistrict = districts.find(p => p.code === selectedDistrict)
-    const tempWard = wards.find(p => p.code === selectedWard)
-    await addRegistration({tempProvince, tempDistrict, tempWard}, formData);
+    const tempProvince = provinces.find((p) => p.code === selectedProvince);
+    const tempDistrict = districts.find((p) => p.code === selectedDistrict);
+    const tempWard = wards.find((p) => p.code === selectedWard);
+    await addRegistration({ tempProvince, tempDistrict, tempWard }, formData);
   };
 
   return (
@@ -593,6 +581,13 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Image
+        alt="Construction worker wearing helmet and mask working on site with buildings in background"
+        className="w-full object-cover"
+        height="220"
+        src="/solution.png"
+        width="1000"
+      />
       <div className="max-w-full mt-5">
         <section className="relative">
           <Image
@@ -687,9 +682,9 @@ export default function Home() {
                 className="w-full bg-white border border-[#e60028] text-[#e60028] font-bold text-sm sm:text-base py-2 rounded-md cursor-pointer"
                 type="button"
                 onClick={() => {
-                  const el = document.getElementById('form-register');
+                  const el = document.getElementById("form-register");
                   if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
+                    el.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
               >
@@ -845,90 +840,15 @@ export default function Home() {
           Đáp ứng mọi nhu cầu của khách hàng
         </p>
         <div className="w-[200px] h-[1px] bg-black mx-auto mt-5 mb-10"></div>
-        <div className="relative overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${(100 / visibleItems) * current}%)`,
-            }}
-          >
-            {sliderList.map((item) => (
-              <div
-                key={item.id}
-                className="p-2 flex-shrink-0"
-                style={{ width: `${100 / visibleItems}%` }}
-              >
-                <div className="bg-gray-100 p-4 text-center h-full flex flex-col items-center">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={250}
-                    height={150}
-                    className="w-[250px] h-[200px] mb-3 object-cover"
-                  />
-                  <p className="flex text-black text-start font-bold text-sm leading-tight my-5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      className="text-[#e60028]"
-                      fill="currentColor"
-                    >
-                      <path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm-1 13.414-3.707-3.707 1.414-1.414L11 12.586l5.293-5.293 1.414 1.414L11 15.414z"></path>
-                    </svg>
-                    <span>{item.title}</span>
-                  </p>
-                  <p className="flex text-black text-start font-bold text-sm mt-1 leading-tight">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      className="text-[#e60028]"
-                      fill="currentColor"
-                    >
-                      <path d="M17.168 8H13l.806-4.835A1 1 0 0 0 12.819 2H7.667a1 1 0 0 0-.986.835l-1.667 10A1 1 0 0 0 6 14h4v8l8.01-12.459A1 1 0 0 0 17.168 8z"></path>
-                    </svg>
-                    Công suất: {item.capacity}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Arrows */}
-          <button
-            onClick={prev}
-            disabled={current === 0}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white px-2 py-1 rounded-full shadow-md z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
-            </svg>
-          </button>
-          <button
-            onClick={next}
-            disabled={current >= totalItems - visibleItems}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white px-2 py-1 rounded-full shadow-md z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-            </svg>
-          </button>
-        </div>
+        <Image
+          src="/construction-project.png"
+          alt="construction project"
+          width={250}
+          height={150}
+          layout="responsive"
+          className="mb-3 object-cover"
+        />
       </div>
-
       <Image
         alt="Worker in safety helmet installing solar panel on roof with solar panels and house background"
         className="object-contain"
@@ -1042,7 +962,8 @@ export default function Home() {
                 <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
               </svg>
               <span className="font-light">
-                Số 277 Đại Lộ Bình Dương, P.Chánh Nghĩa, Tp Thủ Dầu Một, Bình Dương
+                Số 277 Đại Lộ Bình Dương, P.Chánh Nghĩa, Tp Thủ Dầu Một, Bình
+                Dương
               </span>
             </p>
             <p className="text-xs flex items-center gap-2">
