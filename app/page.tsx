@@ -3,154 +3,6 @@ import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import { addRegistration } from "./action";
 
-const installPriceList = [
-  {
-    id: 1,
-    title: "HỆ 3KWP",
-    price: "30.999.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi  615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title: "Inverter DEYE hòa lưới bám tải 3KW (SUN-3K-G04P1-EU-AM1)",
-      },
-      {
-        id: 3,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "HỆ 5KWP",
-    price: "47.999.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi 615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title: "Inverter DEYE hòa lưới bám tải 5KW (SUN-5K-G05P1-EU-AM2) ",
-      },
-      {
-        id: 3,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "HỆ 10KWP",
-    price: "90.000.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi 615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title: "Inverter DEYE hòa lưới bám tải 10KW (SUN-10K-G02P1-EU-AM2) ",
-      },
-      {
-        id: 3,
-        title: "Smart meter Sensor(DDSU-666-H) - 1Phase",
-      },
-      {
-        id: 4,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "HỆ 15 KWP",
-    price: "145.000.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình \n và doanh nghiệp SME",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi 615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title:
-          "Inverter Huawei 15 KW - 3 Phase (Bám tải Zero Export) SUN2000-15KTL-M5",
-      },
-      {
-        id: 3,
-        title: "Smart meter Sensor (DDSU-666-H) - 1Phase",
-      },
-      {
-        id: 4,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "HỆ 5 KWP - LƯU TRỮ",
-    price: "85.000.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình \n và doanh nghiệp SME",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi 615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title:
-          "Inverter hòa lưới có lưu trữ DEYE 1 PHA , 5 KW, 2 MPPT Model: SUN-5K-SG04LP1-EU-SM2 ",
-      },
-      {
-        id: 3,
-        title: "Ắc quy LITHIUM51.2V 100AH, (SE-G5.1 RO-B)",
-      },
-      {
-        id: 4,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "HỆ 8 KWP - LƯU TRỮ",
-    price: "120.000.000",
-    unit: "VNĐ/HỆ",
-    for: "Dành cho hộ gia đình \n và doanh nghiệp SME",
-    list: [
-      {
-        id: 1,
-        title: "Tấm pin Longi 615W - LR8HDG - 2 mặt kính",
-      },
-      {
-        id: 2,
-        title:
-          "Inverter Hòa Lưới có lưu trữ DEYE 1 PHA, 8 KW MODEL: SUN-8K-SG05LP1-EU-SM2, ",
-      },
-      {
-        id: 3,
-        title: "Ắc quy LITHIUM 51.2V 100AH, (SE-G5.1 PRO-B)",
-      },
-      {
-        id: 4,
-        title: "Vật tư phụ",
-      },
-    ],
-  },
-];
-
 const sliderList = [
   {
     id: 1,
@@ -649,72 +501,6 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-center text-[#e60028] font-bold text-lg sm:text-xl md:text-3xl mb-3 leading-tight">
-          BẢNG GIÁ LẮP ĐẶT
-        </h1>
-        <p className="text-center text-black text-sm sm:text-base md:text-lg font-semibold mb-10 mx-auto leading-relaxed">
-          Bảng giá dự tính lắp đặt năng lượng mặt trời cập nhật năm 2024.
-          <br />
-          Giá đã bao gồm công lắp đặt và vật tư liên quan. Giá có thể thay đổi
-          tùy theo vị trí thi công thực tế.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-          {installPriceList.map((item) => (
-            <div
-              key={item.id}
-              className="bg-[#F7FFFF] rounded-2xl pt-6 px-6 pb-12 flex-1 w-full max-w-sm"
-            >
-              <h2 className="text-black font-semibold text-center sm:text-lg mb-2 underline decoration-black decoration-2">
-                {item.title}
-              </h2>
-              <p className="text-black font-extrabold text-3xl sm:text-4xl mb-1 leading-none">
-                {item.price}
-              </p>
-              <p className="text-gray-500 text-xs sm:text-sm mb-3">
-                {item.unit}
-              </p>
-              <p className="text-black text-xs sm:text-sm my-10 whitespace-pre-line">
-                {item.for}
-              </p>
-              <button
-                className="w-full bg-white border border-[#e60028] text-[#e60028] font-bold text-sm sm:text-base py-2 rounded-md cursor-pointer"
-                type="button"
-                onClick={() => {
-                  const el = document.getElementById("form-register");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                Tư vấn ngay
-              </button>
-              <hr className="border-black my-10" />
-              <p className="font-bold mb-3 text-sm sm:text-base">
-                Danh sách thiết bị:
-              </p>
-              <ul className="text-black text-xs sm:text-sm space-y-3 list-none">
-                {item.list.map((l) => (
-                  <li className="flex items-center gap-2" key={l.id}>
-                    <svg
-                      className="flex-shrink-0 mt-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                    </svg>
-                    <span>{l.title}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h2 className="text-center text-[#e60028] font-bold text-lg sm:text-xl md:text-3xl mb-3 leading-tight">
           Tại sao bạn nên sử dụng điện năng lượng mặt trời của Viettel?
@@ -889,7 +675,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white rounded-lg p-6 flex flex-col justify-between max-w-xs sm:max-w-[320px]">
-              <div className="ext-black text-sm leading-relaxed mb-6">
+              <div className="text-black text-sm leading-relaxed mb-6">
                 Đã tham khảo nhiều đơn vị lắp đặt trong quá trình tìm hiểu. Và
                 tôi thấy yên tâm nhất ở Viettel Construction. Tôi đã lắp hệ bám
                 tải 20KWp cho khách sạn của mình, mỗi tháng đã tiết kiệm được
@@ -1015,6 +801,12 @@ export default function Home() {
             <h2 className="text-center text-[#e60028] font-bold text-lg sm:text-xl md:text-3xl mb-3 leading-tight">
               ĐĂNG KÝ TƯ VẤN
             </h2>
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Tên doanh nghiệp"
+              type="text"
+              name="companyName"
+            />
             <input
               className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
               placeholder="Họ và tên"

@@ -13,6 +13,7 @@ export const addRegistration = async (
   },
   formData: FormData
 ) => {
+  const companyName = formData.get("companyName") as string;
   const fullName = formData.get("fullName") as string;
   const phone = formData.get("phone") as string;
   const moneyUsed = formData.get("moneyUsed") as string;
@@ -25,6 +26,7 @@ export const addRegistration = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        companyName,
         fullName,
         phone,
         province: tempProvince?.name,
