@@ -868,7 +868,7 @@ export default function Home() {
                 ))}
               </select>
             </div>
-            <select
+            {/* <select
               aria-label="Số tiền sử dụng điện mỗi tháng"
               name="moneyUsed"
               className="bg-[#E4E4E4] text-xs text-black rounded-md px-3 py-2 w-full focus:outline-none"
@@ -893,7 +893,19 @@ export default function Home() {
                   {b.name}
                 </option>
               ))}
-            </select>
+            </select> */}
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Số tiền sử dụng điện mỗi tháng"
+              type="text"
+              name="moneyUsed"
+            />
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Ngân sách dự kiến lắp đặt NLMT"
+              type="text"
+              name="budget"
+            />
             <button
               className="w-50 h-15 bg-gradient-to-r from-[#f87171] to-[#dc2626] text-white text-sm font-bold rounded-full py-2 hover:brightness-110 transition"
               type="submit"
