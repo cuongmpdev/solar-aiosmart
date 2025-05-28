@@ -30,44 +30,6 @@ const sliderList = [
   },
 ];
 
-const moneyUsed = [
-  {
-    name: "Dưới 1 triệu/tháng",
-    code: "Dưới 1 triệu/tháng",
-  },
-  {
-    name: "Từ 1tr đến 2tr/tháng",
-    code: "Từ 1tr đến 2tr/tháng",
-  },
-  {
-    name: "Từ 2tr đến 3tr/tháng",
-    code: "Từ 2tr đến 3tr/tháng",
-  },
-  {
-    name: "Từ 3tr đến 5tr/tháng",
-    code: "Từ 3tr đến 5tr/tháng",
-  },
-  {
-    name: "Trên 5tr/tháng",
-    code: "Trên 5tr/tháng",
-  },
-];
-
-const budget = [
-  {
-    name: "30 - 50 triệu",
-    code: "30 - 50 triệu",
-  },
-  {
-    name: "50 - 100 triệu",
-    code: "50 - 100 triệu",
-  },
-  {
-    name: "Trên 100 triệu",
-    code: "Trên 100 triệu",
-  },
-];
-
 const steps = [
   {
     title: "Tiếp nhận thông tin",
@@ -128,9 +90,7 @@ export default function Home() {
   const [selectedProvince, setSelectedProvince] = useState<number | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<number | null>(null);
   const [selectedWard, setSelectedWard] = useState<number | null>(null);
-  const [selectedMoneyUsed, setSelectedMoneyUsed] = useState<string>("");
-  const [selectedBudget, setSelectedBudget] = useState<string>("");
-  console.log(selectedWard, selectedMoneyUsed, selectedBudget);
+  console.log(selectedWard);
 
   useEffect(() => {
     fetch("https://provinces.open-api.vn/api/?depth=1")
