@@ -868,32 +868,6 @@ export default function Home() {
                 ))}
               </select>
             </div>
-            {/* <select
-              aria-label="Số tiền sử dụng điện mỗi tháng"
-              name="moneyUsed"
-              className="bg-[#E4E4E4] text-xs text-black rounded-md px-3 py-2 w-full focus:outline-none"
-              onChange={(e) => setSelectedMoneyUsed(e.target.value)}
-            >
-              <option value="">Số tiền sử dụng điện mỗi tháng</option>
-              {moneyUsed.map((money) => (
-                <option key={money.code} value={money.code}>
-                  {money.name}
-                </option>
-              ))}
-            </select>
-            <select
-              aria-label="Ngân sách dự kiến lắp đặt NLMT"
-              name="budget"
-              className="bg-[#E4E4E4] text-xs text-black rounded-md px-3 py-2 w-full focus:outline-none"
-              onChange={(e) => setSelectedBudget(e.target.value)}
-            >
-              <option value="">Ngân sách dự kiến lắp đặt NLMT</option>
-              {budget.map((b) => (
-                <option key={b.code} value={b.code}>
-                  {b.name}
-                </option>
-              ))}
-            </select> */}
             <input
               className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
               placeholder="Số tiền sử dụng điện mỗi tháng"
