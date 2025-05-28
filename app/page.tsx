@@ -122,12 +122,12 @@ export default function Home() {
 
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    const tempProvince = provinces.find((p) => p.code === selectedProvince);
-    const tempDistrict = districts.find((p) => p.code === selectedDistrict);
-    const tempWard = wards.find((p) => p.code === selectedWard);
-    await addRegistration({ tempProvince, tempDistrict, tempWard }, formData);
+    // const form = e.target as HTMLFormElement;
+    // const formData = new FormData(form);
+    // const tempProvince = provinces.find((p) => p.code === selectedProvince);
+    // const tempDistrict = districts.find((p) => p.code === selectedDistrict);
+    // const tempWard = wards.find((p) => p.code === selectedWard);
+    await addRegistration();
   };
 
   return (
