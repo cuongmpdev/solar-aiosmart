@@ -30,44 +30,6 @@ const sliderList = [
   },
 ];
 
-const moneyUsed = [
-  {
-    name: "Dưới 1 triệu/tháng",
-    code: "Dưới 1 triệu/tháng",
-  },
-  {
-    name: "Từ 1tr đến 2tr/tháng",
-    code: "Từ 1tr đến 2tr/tháng",
-  },
-  {
-    name: "Từ 2tr đến 3tr/tháng",
-    code: "Từ 2tr đến 3tr/tháng",
-  },
-  {
-    name: "Từ 3tr đến 5tr/tháng",
-    code: "Từ 3tr đến 5tr/tháng",
-  },
-  {
-    name: "Trên 5tr/tháng",
-    code: "Trên 5tr/tháng",
-  },
-];
-
-const budget = [
-  {
-    name: "30 - 50 triệu",
-    code: "30 - 50 triệu",
-  },
-  {
-    name: "50 - 100 triệu",
-    code: "50 - 100 triệu",
-  },
-  {
-    name: "Trên 100 triệu",
-    code: "Trên 100 triệu",
-  },
-];
-
 const steps = [
   {
     title: "Tiếp nhận thông tin",
@@ -128,9 +90,7 @@ export default function Home() {
   const [selectedProvince, setSelectedProvince] = useState<number | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<number | null>(null);
   const [selectedWard, setSelectedWard] = useState<number | null>(null);
-  const [selectedMoneyUsed, setSelectedMoneyUsed] = useState<string>("");
-  const [selectedBudget, setSelectedBudget] = useState<string>("");
-  console.log(selectedWard, selectedMoneyUsed, selectedBudget);
+  console.log(selectedWard);
 
   useEffect(() => {
     fetch("https://provinces.open-api.vn/api/?depth=1")
@@ -868,32 +828,18 @@ export default function Home() {
                 ))}
               </select>
             </div>
-            <select
-              aria-label="Số tiền sử dụng điện mỗi tháng"
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Số tiền sử dụng điện mỗi tháng"
+              type="text"
               name="moneyUsed"
-              className="bg-[#E4E4E4] text-xs text-black rounded-md px-3 py-2 w-full focus:outline-none"
-              onChange={(e) => setSelectedMoneyUsed(e.target.value)}
-            >
-              <option value="">Số tiền sử dụng điện mỗi tháng</option>
-              {moneyUsed.map((money) => (
-                <option key={money.code} value={money.code}>
-                  {money.name}
-                </option>
-              ))}
-            </select>
-            <select
-              aria-label="Ngân sách dự kiến lắp đặt NLMT"
+            />
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Ngân sách dự kiến lắp đặt NLMT"
+              type="text"
               name="budget"
-              className="bg-[#E4E4E4] text-xs text-black rounded-md px-3 py-2 w-full focus:outline-none"
-              onChange={(e) => setSelectedBudget(e.target.value)}
-            >
-              <option value="">Ngân sách dự kiến lắp đặt NLMT</option>
-              {budget.map((b) => (
-                <option key={b.code} value={b.code}>
-                  {b.name}
-                </option>
-              ))}
-            </select>
+            />
             <button
               className="w-50 h-15 bg-gradient-to-r from-[#f87171] to-[#dc2626] text-white text-sm font-bold rounded-full py-2 hover:brightness-110 transition"
               type="submit"
