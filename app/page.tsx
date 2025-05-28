@@ -803,6 +803,12 @@ export default function Home() {
             </h2>
             <input
               className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
+              placeholder="Tên doanh nghiệp"
+              type="text"
+              name="companyName"
+            />
+            <input
+              className="w-full bg-[#E4E4E4] rounded-md text-xs text-black placeholder:text-black px-3 py-2 focus:outline-none"
               placeholder="Họ và tên"
               type="text"
               name="fullName"
