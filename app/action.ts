@@ -19,7 +19,6 @@ export const addRegistration = async (
   const moneyUsed = formData.get("moneyUsed") as string;
   const budget = formData.get("budget") as string;
   const { tempProvince, tempDistrict, tempWard } = form;
-  console.log(companyName, fullName, phone, moneyUsed, budget, tempProvince, tempDistrict, tempWard)
   try {
     await fetch(googleScriptURL, {
       method: "POST",
