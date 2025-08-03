@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import { addRegistration } from "./action";
+import Link from "next/link";
 
 const sliderList = [
   {
@@ -131,7 +132,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white max-w-[1000px] mx-auto">
+    <div className="relative bg-white max-w-[1000px] mx-auto">
       <div>
         <Image
           alt="Worker in safety helmet installing solar panel on roof with solar panels and house background"
@@ -708,7 +709,8 @@ export default function Home() {
                 <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
               </svg>
               <span className="font-light">
-                161-163 Trần Quốc Thảo, Phường 09, Quận 3, Thành phố Hồ Chí Minh, Việt Nam
+                161-163 Trần Quốc Thảo, Phường 09, Quận 3, Thành phố Hồ Chí
+                Minh, Việt Nam
               </span>
             </p>
             <p className="text-xs flex items-center gap-2">
@@ -747,8 +749,8 @@ export default function Home() {
               </span>
             </p>
             <p className="text-sm font-normal leading-relaxed">
-              Mã số doanh nghiệp: 0104753865-005 do Sở Kế hoạch và Đầu tư thành phố
-              Hà Nội cấp lần đầu ngày 09/06/2010
+              Mã số doanh nghiệp: 0104753865-005 do Sở Kế hoạch và Đầu tư thành
+              phố Hà Nội cấp lần đầu ngày 09/06/2010
             </p>
           </div>
           <form
@@ -847,6 +849,20 @@ export default function Home() {
             </button>
           </form>
         </div>
+      </div>
+      <div className="fixed bottom-10 right-20 flex flex-col gap-8 z-10 cursor-pointer">
+        <Link href="https://www.facebook.com/VCCHCM" target="_blank">
+          <Image
+            src="/facebook-logo.png"
+            alt="Facebook"
+            width={60}
+            height={60}
+            className="rounded-full"
+          />
+        </Link>
+        <Link href="https://zalo.me/0923302309" target="_blank">
+          <Image src="/zalo-logo.png" alt="Zalo" width={60} height={60} className="rounded-full"/>
+        </Link>
       </div>
     </div>
   );
