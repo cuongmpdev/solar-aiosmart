@@ -596,13 +596,6 @@ export default function Home() {
           className="mb-3 object-cover"
         />
       </div>
-      <Image
-        alt="Worker in safety helmet installing solar panel on roof with solar panels and house background"
-        className="object-contain"
-        height="300"
-        src="/achievement.png"
-        width="1000"
-      />
 
       <div className="bg-[#1a1a1a]">
         <section className="bg-[#b8002a] py-8 px-4">
