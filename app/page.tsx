@@ -91,7 +91,6 @@ export default function Home() {
   const [selectedProvince, setSelectedProvince] = useState<number | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<number | null>(null);
   const [selectedWard, setSelectedWard] = useState<number | null>(null);
-  console.log(selectedWard);
 
   useEffect(() => {
     fetch("https://provinces.open-api.vn/api/?depth=1")
